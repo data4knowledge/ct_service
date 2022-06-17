@@ -22,10 +22,3 @@ class Neo4jDatabase():
       CALL apoc.periodic.iterate('MATCH (n) RETURN n', 'DETACH DELETE n', {batchSize:1000})
     """
     self.__repo.graph.run(query)
-
-#  def list(self):
-#    query = """
-#      MATCH (n:SkosConcept) RETURN n.identifier LIMIT 25
-#    """
-#    results = self.__repo.graph.run(query)
-#    return results

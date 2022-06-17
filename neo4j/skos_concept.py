@@ -17,5 +17,5 @@ class SkosConcept(Concept):
     query = """
       MATCH (n:SkosConcept)-[:NARROWER]->(m:SkosConcept) WHERE n.identifier='%s' AND m.identifier='%s' RETURN m
     """ % (parent_identifier, identifier)
-    results = db.graph().run(query)
-    return results
+    results = db.graph().run(query).data()
+    return dict(results[0]['m'])

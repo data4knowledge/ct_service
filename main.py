@@ -24,3 +24,4 @@ async def read_root():
 async def ct_search(parent: str, item: str):
   results = SkosConcept.find_within_parent(parent, item)
   return {'status': "You wanted %s" % (results)}
+
