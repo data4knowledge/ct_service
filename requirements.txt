@@ -1,4 +1,4 @@
 deta
 fastapi
 pydantic
-py2neo.ogm
+py2neo
