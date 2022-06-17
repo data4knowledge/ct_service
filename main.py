@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from model.system import SystemOut
+from neo4j.neo4j_database import Neo4jDatabase
 
 VERSION = "0.1"
 SYSTEM_NAME = "d4k CT Microservice"
@@ -20,5 +21,6 @@ async def read_root():
 
 @app.get("/terms/")
 async def ct_search(code_list: str, code_list_item: str):
-  # Neo4j, search db
-  return {'status': "You wanted %s, %s" % (code_list, code_list_item)}
+  db = Neo4jDatabase()
+  results = db.list()
+  return {'status': "You wanted %s" % (results)}
