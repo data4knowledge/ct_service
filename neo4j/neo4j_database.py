@@ -23,9 +23,9 @@ class Neo4jDatabase():
     """
     self.__repo.graph.run(query)
 
-  def list(self):
-    query = """
-      MATCH (n:SkosConcept) RETURN n.identifier LIMIT 25
-    """
-    results = self.__repo.graph.run(query)
-    return results
+#  def list(self):
+#    query = """
+#      MATCH (n:SkosConcept) RETURN n.identifier LIMIT 25
+#    """
+#    results = self.__repo.graph.run(query)
+#    return results
