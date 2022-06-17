@@ -5,7 +5,7 @@ SYSTEM_NAME = "d4k CT Microservice"
 
 app = FastAPI(
   title = SYSTEM_NAME,
-  description = "A microservice to handle CT in a Neo4j database.",
+  description = "A microservice to handle brilliant CT in a Neo4j database.",
   version = VERSION
 )
 
