@@ -6,9 +6,9 @@ DB_NAME = "neo4j"
 class Neo4jHelper():
   
   def __init__(self):
-    url = "neo4j://localhost:7687"
+    url = "bolt://localhost:7687"
     usr = "neo4j"
-    pwd = "neo4j"
+    pwd = "cdisc"
     self.__repo = Repository(url, name=DB_NAME, user=usr, password=pwd)
 
   def repository(self):
