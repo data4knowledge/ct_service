@@ -1,15 +1,14 @@
 from py2neo.ogm import Repository
-import os
-
-DB_NAME = "neo4j"
+from service_environment import ServiceEnvironment
 
 class Neo4jDatabase():
   
   def __init__(self):
-    url = os.environ['CT_SERVICE_NEO4J_URL']
-    usr = os.environ['CT_SERVICE_NEO4J_USER']
-    pwd = os.environ['CT_SERVICE_NEO4J_PWD']
-    self.__repo = Repository(url, name=DB_NAME, user=usr, password=pwd)
+    db_name = ServiceEnvironment().get('CT_SERVICE_NEO4J_DB_NAME')
+    url = ServiceEnvironment().get('CT_SERVICE_NEO4J_URL')
+    usr = ServiceEnvironment().get('CT_SERVICE_NEO4J_USER')
+    pwd = ServiceEnvironment().get('CT_SERVICE_NEO4J_PWD')
+    self.__repo = Repository(url, name=db_name, user=usr, password=pwd)
 
   def repository(self):
     return self.__repo
@@ -17,8 +16,8 @@ class Neo4jDatabase():
   def graph(self):
     return self.__repo.graph
 
-  def clear(self):
-    query = """
-      CALL apoc.periodic.iterate('MATCH (n) RETURN n', 'DETACH DELETE n', {batchSize:1000})
-    """
-    self.__repo.graph.run(query)
+  #def clear(self):
+  #  query = """
+  #    CALL apoc.periodic.iterate('MATCH (n) RETURN n', 'DETACH DELETE n', {batchSize:1000})
+  #  """
+  #  self.__repo.graph.run(query)
