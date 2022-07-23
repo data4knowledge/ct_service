@@ -4,3 +4,4 @@ pydantic
 py2neo
 fastapi_pagination
 pytest
+python-dotenv

@@ -133,3 +133,4 @@ dmypy.json
 
 # Deta files
 .deta
+.development_test_env
