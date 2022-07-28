@@ -17,7 +17,7 @@ class Release(Concept):
     query = """
       MATCH (ni:ScopedIdentifier)<-[:IDENTIFIED_BY]-(n:Release)-[:CONSISTS_OF]->(m:SkosConceptScheme)-[:IDENTIFIED_BY]->(mi:ScopedIdentifier), 
         (n)-[:HAS_STATUS]->(ns:RegistrationStatus)-[:MANAGED_BY]->(ra:RegistrationAuthority) 
-        RETURN n,ni,m,mi,ns,ra ORDER BY ni.version, mi.version
+        RETURN n,ni,m,mi,ns,ra ORDER BY toInteger(ni.version), toInteger(mi.version)
     """
     query_results = db.graph().run(query).data()
     for query_result in query_results:
