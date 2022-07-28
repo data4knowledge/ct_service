@@ -27,3 +27,6 @@ def test_environment_get():
 
 def test_environment_missing():
   assert ServiceEnvironment().get('SOMETHING2') == ""
+
+def test_build_full_name():
+  assert ServiceEnvironment().build_full_name('UPPER') == "TEST_UPPER"
